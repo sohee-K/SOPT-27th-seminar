@@ -1,0 +1,97 @@
+body {
+    width: 800px;
+    height: auto;
+    margin: 100px auto;
+    background-color: #202124;
+    color: white;
+}
+
+form {
+    width: 200px;
+    margin: 0 auto;
+}
+
+input {
+    width: 200px;
+}
+
+hr {
+    margin-right: 10px;
+    border-style: none;
+    border-top: 2px dashed;
+}
+
+span {
+    color: #9caba3;
+}
+
+a {
+    background-color:  #202124;
+    color: #9caba3;
+    text-decoration: none;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 5px;
+}
+
+a:hover {
+    color: white;
+}
+
+#card {
+    width: 800px;
+    background-color: #35363a;
+    border-radius: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+#cardLeft {
+    margin: 10px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+#cardRight {
+    margin: 10px;
+    margin-right: 20px;
+}
+
+#cardRightTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin: 20px;
+}
+
+#userLogin {
+    width: 100px;
+    margin: 20px auto;
+    margin-top: 0px;
+    text-align: center;
+}
+
+#userName {
+    font-size: x-large;
+    font-weight: bold;
+    max-width: 260px;
+    margin-bottom: 5px;
+}
+
+#follow {
+    margin: 30px 10px 5px 0px;
+}
+
+#repos {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 10px;
+}
