@@ -1,18 +1,25 @@
 body {
     width: 800px;
     height: auto;
-    margin: 100px auto;
+    margin: 0px auto;
     background-color: #202124;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 form {
     width: 200px;
-    margin: 0 auto;
+    height: 20px;
+    margin: 15px auto 15px auto;
 }
 
 input {
     width: 200px;
+    height: 20px;
 }
 
 hr {
@@ -38,13 +45,37 @@ a:hover {
     color: white;
 }
 
-#card {
-    width: 800px;
-    background-color: #35363a;
-    border-radius: 20px;
-    margin-top: 30px;
+#search {
     display: flex;
     flex-direction: row;
+    width: 700px;
+    margin: 20px auto;
+}
+
+#search img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+
+}
+
+#search p {
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 5px 0px 5px 20px;
+}
+
+#card {
+    width: inherit;
+    background-color: #35363a;
+    border-radius: 20px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+
+    animation-name: coming-down;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
 }
 
 #cardLeft {
@@ -73,7 +104,7 @@ a:hover {
 }
 
 #userLogin {
-    width: 100px;
+    width: 200px;
     margin: 20px auto;
     margin-top: 0px;
     text-align: center;
@@ -94,4 +125,17 @@ a:hover {
     display: flex;
     flex-flow: row wrap;
     margin-bottom: 10px;
+}
+
+@keyframes coming-down {
+    from {
+        position: relative;
+        top: -20px;
+        opacity: 0.2;
+    }
+    to {
+        position: relative;
+        top: 0px;
+        opacity: 1;
+    }
 }
