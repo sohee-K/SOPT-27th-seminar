@@ -1,0 +1,13 @@
+.dark-mode {
+    background-color: #202124;
+    color: white;
+    transition: 0.7s;
+    transition-timing-function: ease-out;
+}
+
+.light-mode {
+    background-color: white;
+    color: black;
+    transition: 0.7s;
+    transition-timing-function: ease-out;
+}

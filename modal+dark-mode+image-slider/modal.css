@@ -1,0 +1,51 @@
+.hide {
+    display: none;
+}
+
+#overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    animation-name: appearing;
+    animation-duration: 1s;
+}
+
+#modal {
+    position: fixed;
+    z-index: 9999;
+    top: 30%; left: 25%;
+    width: 50%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px gray;
+
+    animation-name: modal-appearing;
+    animation-duration: 1s;
+}
+
+#modal button {
+    margin: 10px 45%;
+}
+
+@keyframes appearing {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modal-appearing {
+    from {
+        top: 35%;
+        opacity: 0.2;
+    }
+    to {
+        top: 30%;
+        opacity: 1;
+    }
+}
