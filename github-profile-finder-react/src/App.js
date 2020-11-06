@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <SearchInput onSubmit={getUser} />
+      <SearchInput getUser={getUser} />
       <SearchResult user={user} />
     </>
   );

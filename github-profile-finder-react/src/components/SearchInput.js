@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function SearchInput({ onSubmit }) {
+function SearchInput({ getUser }) {
     const [input, setInput] = useState('');
 
     const handleChange = (e) => {
@@ -9,7 +9,7 @@ function SearchInput({ onSubmit }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(input);
+        getUser(input);
     }
 
     return (
