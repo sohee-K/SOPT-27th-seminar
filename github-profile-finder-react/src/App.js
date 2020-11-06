@@ -14,6 +14,7 @@ function App() {
   const getUserAPI = async (username) => {
     const data = await client.get(username);
     setUser(data.data);
+    console.log(user);
   };
 
   React.useEffect( () => {
@@ -23,7 +24,7 @@ function App() {
   return (
     <>
       <SearchInput />
-      <SearchResult />
+      <SearchResult user={user}/>
     </>
   );
 }
