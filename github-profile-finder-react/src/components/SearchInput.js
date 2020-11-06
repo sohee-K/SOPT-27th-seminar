@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function SearchInput() {
+function SearchInput({ onSubmit }) {
+    const [input, setInput] = useState('');
+
+    const handleChange = (e) => {
+        setInput(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSubmit(input);
+    }
+
     return (
-        <div>SearchInput</div>
+        <form onSubmit={handleSubmit}>
+            <input type="text" placeholder="Search Github Profile" onChange={handleChange} value={input}/>
+        </form>
     );
 }
 
