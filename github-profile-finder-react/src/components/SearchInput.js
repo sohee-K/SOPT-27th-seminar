@@ -10,6 +10,7 @@ function SearchInput({ getUser }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         getUser(input);
+        setInput(" ");
     }
 
     return (
