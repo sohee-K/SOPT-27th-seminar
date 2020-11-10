@@ -3,7 +3,7 @@ const goLeft = document.querySelector(".go-left");
 const goRight = document.querySelector(".go-right");
 const text = document.querySelector(".text");
 
-const maxNum = 3;
+const maxNum = 5;
 let currentIndex = 0;
 
 function handleLeftClick() {

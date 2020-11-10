@@ -5,9 +5,9 @@
 
 .image-container img{
     z-index: 1;
-    max-height: 50vh;
     margin: auto;
-    width: 500px;
+    width: 576px;
+    height: 324px;
 }
 
 .hide {
@@ -36,7 +36,7 @@ button:hover {
 }
 
 .go-right {
-    margin-left: 460px;
+    margin-left: 536px;
 }
 
 .text {
