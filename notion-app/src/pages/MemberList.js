@@ -29,7 +29,7 @@ function MemberList({ history, match }) {
         default:
             return(
                 <div className="member-list">
-                    <div className="member-list__title">파트원 소개</div>
+                    <div className="member-list__title">⭐ 파트원 소개 *</div>
                     <div className="member-list__header member-list-header">
                         <div className="member-list-header__nav">Gallery View</div>
                         <div className="member-list-header__empty"></div>

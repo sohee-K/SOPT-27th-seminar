@@ -5,7 +5,7 @@ function Main() {
     return (
         <div className="main">
             <img src={Logo} alt="logo"></img>
-            <div>메인 페이지</div>
+            <h1>Web Part</h1>
         </div>
     );
 }
