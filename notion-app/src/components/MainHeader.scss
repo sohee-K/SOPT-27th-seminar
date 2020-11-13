@@ -1,0 +1,14 @@
+.main-header {
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    padding: 12px;
+    font-size: 14px;
+    .empty {
+        flex: 1;
+    }
+    &-icon {
+        height: 100%;
+        margin-left: 12px;
+    }
+}
