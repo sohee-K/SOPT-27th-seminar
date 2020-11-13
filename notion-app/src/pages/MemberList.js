@@ -4,15 +4,16 @@ import Card from '../components/Card';
 import Loading from '../components/Loading';
 import { useEffect, useState } from 'react';
 
-import { getMemberAPI } from '../lib/memberAPI';
+import { getMembersAPI } from '../lib/memberAPI';
 
 function MemberList({ history, match }) {
     const [members, setMembers] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         (async () => {
-            const result = await getMemberAPI();
+            const result = await getMembersAPI();
             setMembers(result);
+            setTimeout(() => setLoading(false), 800);
         })();
     }, []);
     const removeCard = (event) => {
@@ -25,7 +26,7 @@ function MemberList({ history, match }) {
             return(
                 <Loading />
             );
-        case false:
+        default:
             return(
                 <div className="member-list">
                     <div className="member-list__title">파트원 소개</div>
