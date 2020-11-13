@@ -2,6 +2,9 @@ import './Card.scss';
 import { DeleteOutlined, FileImageOutlined } from '@ant-design/icons';
 
 function Card({ route, memberData, onRemoveCard }) {
+    const colors = ["lightpink", "lightyellow", "lightblue", "lavender", "lightgray"];
+    const num = Math.floor(Math.random() * 5);
+
     return(
         <div className="card" onClick={() => route.history.push(`${route.match.path}/${memberData.id}`)} draggable >
             <div className="remove-button" onClick={onRemoveCard}>
@@ -13,7 +16,7 @@ function Card({ route, memberData, onRemoveCard }) {
             <div className="card__content card__text name">📃&nbsp;{memberData.name}</div>
             <div className="card__content card__text instagram">{memberData.instagram}</div>
             <div className="card__content card__text introduction">{memberData.introduction}</div>
-            <div className="card__content card__text mbti">{memberData.mbti}</div>
+            <div className="card__content card__text mbti" style={{ backgroundColor: colors[num]}}>{memberData.mbti}</div>
         </div>
     );
 }
