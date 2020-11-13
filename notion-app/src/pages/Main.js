@@ -1,6 +1,12 @@
+import './Main.scss';
+import Logo from '../assets/logo.png';
+
 function Main() {
     return (
-        <div>Main Page</div>
+        <div className="main">
+            <img src={Logo} alt="logo"></img>
+            <div>메인 페이지</div>
+        </div>
     );
 }
 

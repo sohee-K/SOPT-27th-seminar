@@ -10,7 +10,7 @@ function Card({ route, memberData, onRemoveCard }) {
             <div className="image-area">
                 { memberData.profileUrl !== '' ? <img src={memberData.profileUrl} alt="profile"></img> : <FileImageOutlined style={{ fontSize: "40px" }} /> }
             </div>
-            <div className="card__content card__text name">{memberData.name}</div>
+            <div className="card__content card__text name">📃&nbsp;{memberData.name}</div>
             <div className="card__content card__text instagram">{memberData.instagram}</div>
             <div className="card__content card__text introduction">{memberData.introduction}</div>
             <div className="card__content card__text mbti">{memberData.mbti}</div>
