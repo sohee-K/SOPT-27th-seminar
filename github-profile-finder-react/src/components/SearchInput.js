@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import '../App.scss';
 
 function SearchInput({ getUser }) {
     const [input, setInput] = useState('');
@@ -15,7 +16,7 @@ function SearchInput({ getUser }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Search Github Profile" onChange={handleChange} value={input}/>
+            <input className="search-input" type="text" placeholder="Search Github Profile" onChange={handleChange} value={input}/>
         </form>
     );
 }
