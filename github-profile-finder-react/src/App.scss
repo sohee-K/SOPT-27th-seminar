@@ -80,9 +80,11 @@ body {
     }
 }
 
-.user-info-list ul li {
+.user-info-list li {
     display: flex;
     align-items: center;
+    margin-right: 0.5rem;
+    
     strong {
         margin-right: 0.5rem;
     }
