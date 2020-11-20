@@ -5,17 +5,28 @@ import SearchResult from './components/SearchResult.js';
 import getUserAPI from './lib/api.js';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [userState, setUserState] = useState({
+    status: "idle",
+    user: null,
+  });
 
   const getUser = async (username) => {
-    const data = await getUserAPI(username);
-    setUser(data);
+    setUserState({ status: "pending", user: null });
+
+    try {
+      const data = await getUserAPI(username);
+      setUserState({ status: "resolved", user: data });
+    }
+    catch(e) {
+      setUserState({ status:"rejected", user: null });
+      console.error(e);
+    }
   };
 
   return (
     <div className="search-wrapper">
       <SearchInput getUser={getUser} />
-      <SearchResult user={user} />
+      <SearchResult userState={userState} />
     </div>
   );
 }

@@ -1,9 +1,11 @@
 import React from 'react';
 import '../App.scss';
 
-function SearchResult({ user }) {
-    return (
-        user && (
+function SearchResult({ userState }) {
+    const { status, user } = userState;
+
+    const UserCard = () => {
+        return (
         <div className="user-card">
             <img className="user-avatar" src={user.avatar_url} alt={user.name}></img>
             <div className="user-info">
@@ -17,8 +19,26 @@ function SearchResult({ user }) {
                 </ul>
             </div>
         </div>
-        )
-    );
+        );
+    };
+
+    switch (status) {
+        case "pending":
+            console.log("pending");
+            return <div style={{ color: "white", fontSize: "10rem" }}>Loading...</div>;
+
+        case "resolved":
+            console.log("resolved");
+            return <UserCard />;
+
+        case "rejected":
+            console.log("rejected");
+            return <div style={{ color: "white", fontSize: "2rem" }}>There's no such user.</div>;
+
+        case "idle":
+        default:
+            return <div></div>;
+    }
 }
 
 export default SearchResult;
