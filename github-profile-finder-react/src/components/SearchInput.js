@@ -1,8 +1,13 @@
-import React, {useState} from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../App.scss';
 
 function SearchInput({ getUser }) {
     const [input, setInput] = useState('');
+    const inputRef = useRef();
+
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []);
 
     const handleChange = (e) => {
         setInput(e.target.value);
@@ -11,12 +16,12 @@ function SearchInput({ getUser }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         getUser(input);
-        setInput(" ");
+        setInput("");
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <input className="search-input" type="text" placeholder="Search Github Profile" onChange={handleChange} value={input}/>
+            <input className="search-input" type="text" placeholder="Search Github Profile" onChange={handleChange} ref={inputRef} value={input}/>
         </form>
     );
 }
