@@ -1,7 +1,8 @@
 import "./Card.scss";
 import { DeleteOutlined, FileImageOutlined } from "@ant-design/icons";
+import { withRouter } from "react-router-dom";
 
-function Card({ route, memberData, onRemoveCard }) {
+function Card({ memberData, onRemoveCard, history }) {
   const colors = [
     "lightpink",
     "lightyellow",
@@ -14,7 +15,7 @@ function Card({ route, memberData, onRemoveCard }) {
   return (
     <div
       className="card"
-      onClick={() => route.history.push(`${route.match.path}/${memberData.id}`)}
+      onClick={() => history.push(`/member/${memberData.id}`)}
       draggable
     >
       <div className="remove-button" onClick={onRemoveCard}>
@@ -46,4 +47,4 @@ function Card({ route, memberData, onRemoveCard }) {
   );
 }
 
-export default Card;
+export default withRouter(Card);

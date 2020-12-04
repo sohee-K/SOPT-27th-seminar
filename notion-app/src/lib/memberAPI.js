@@ -3,7 +3,7 @@ import axios from "axios";
 const url =
   "http://ec2-13-124-127-8.ap-northeast-2.compute.amazonaws.com:3000/api/members";
 
-async function getMembersAPI() {
+async function getMembers() {
   try {
     const { data } = await axios.get(url);
     console.log("[SUCCESS] GET MEMBERS", data.data);
@@ -14,7 +14,7 @@ async function getMembersAPI() {
   }
 }
 
-async function getMemberAPI(id) {
+async function getMember(id) {
   try {
     const { data } = await axios.get(`${url}/${id}`);
     console.log("[SUCCESS] GET MEMBER", data.data);
@@ -25,4 +25,22 @@ async function getMemberAPI(id) {
   }
 }
 
-export { getMembersAPI, getMemberAPI };
+async function updateMember(id, body) {
+  try {
+    const { data } = await axios.put(`${url}/${id}`, body);
+    console.log("[SUCCESS] UPDATE MEMBER", data.data);
+    return data.data;
+  } catch (e) {
+    console.log("[FAIL] UPDATE MEMBER", e);
+    throw e;
+  }
+}
+
+const memberAPI = {
+  getMembers,
+  getMember,
+  updateMember,
+};
+
+export default memberAPI;
+export { getMembers, getMember, updateMember };

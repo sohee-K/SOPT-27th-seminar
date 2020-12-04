@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { getMemberAPI } from "../lib/memberAPI";
+import { getMember, updateMember } from "../lib/memberAPI";
 import MemberElement from "../components/MemberElement";
 import Loading from "../components/Loading";
 
@@ -14,7 +14,7 @@ function MemberDetail({ match }) {
     (async () => {
       try {
         setMemberState({ status: "pending", member: null });
-        const result = await getMemberAPI(match.params.id);
+        const result = await getMember(match.params.id);
         setTimeout(
           () => setMemberState({ status: "resolved", member: result }),
           300
@@ -26,15 +26,23 @@ function MemberDetail({ match }) {
     })();
   }, []);
 
-  const onChangeInputs = (event) => {
+  const onChangeInputs = async (event) => {
     const { name, value } = event.target;
-    setMemberState({
-      status: "resolved",
-      member: {
+    try {
+      await updateMember(match.params.id, {
         ...memberState.member,
         [name]: value,
-      },
-    });
+      });
+      setMemberState({
+        status: "resolved",
+        member: {
+          ...memberState.member,
+          [name]: value,
+        },
+      });
+    } catch (e) {
+      throw e;
+    }
   };
 
   switch (memberState.status) {
