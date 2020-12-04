@@ -27,11 +27,6 @@ function MemberList({ history, match }) {
     })();
   }, []);
 
-  const onRemoveCard = (event) => {
-    event.stopPropagation();
-    console.log("REMOVE CARD!!");
-  };
-
   const onCreateCard = async () => {
     try {
       const data = await MemberAPI.createMember({
@@ -73,7 +68,14 @@ function MemberList({ history, match }) {
                 key={"card-" + index}
                 route={{ history, match }}
                 memberData={member}
-                onRemoveCard={onRemoveCard}
+                onDeleteCard={async () =>
+                  setMembersState({
+                    members: membersState.members.filter(
+                      (mem) => mem.id !== member.id
+                    ),
+                    status: "resolved",
+                  })
+                }
               />
             ))}
             <div className="create-card" onClick={onCreateCard}>

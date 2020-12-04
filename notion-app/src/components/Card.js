@@ -1,8 +1,9 @@
 import "./Card.scss";
 import { DeleteOutlined, FileImageOutlined } from "@ant-design/icons";
 import { withRouter } from "react-router-dom";
+import { deleteMember } from "../lib/memberAPI";
 
-function Card({ memberData, onRemoveCard, history }) {
+function Card({ memberData, history, onDeleteCard }) {
   const colors = [
     "lightpink",
     "lightyellow",
@@ -11,6 +12,16 @@ function Card({ memberData, onRemoveCard, history }) {
     "lightgray",
   ];
   const num = Math.floor(Math.random() * 5);
+
+  const onRemoveCard = async (event) => {
+    event.stopPropagation();
+    try {
+      await deleteMember(memberData.id);
+      onDeleteCard();
+    } catch (e) {
+      throw e;
+    }
+  };
 
   return (
     <div

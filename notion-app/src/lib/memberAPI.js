@@ -10,7 +10,7 @@ async function getMembers() {
     return data.data;
   } catch (e) {
     console.error("[FAIL] GET MEMBERS", e);
-    return e;
+    throw e;
   }
 }
 
@@ -47,12 +47,24 @@ async function createMember(body) {
   }
 }
 
+async function deleteMember(id) {
+  try {
+    const { data } = await axios.delete(`${url}/${id}`);
+    console.log("[SUCCESS] DELETE MEMBER", data.data);
+    return data.data;
+  } catch (e) {
+    console.log("[FAIL] DELETE MEMBER", e);
+    throw e;
+  }
+}
+
 const MemberAPI = {
   getMembers,
   getMember,
   updateMember,
   createMember,
+  deleteMember,
 };
 
 export default MemberAPI;
-export { getMembers, getMember, updateMember, createMember };
+export { getMembers, getMember, updateMember, createMember, deleteMember };
