@@ -36,11 +36,23 @@ async function updateMember(id, body) {
   }
 }
 
-const memberAPI = {
+async function createMember(body) {
+  try {
+    const { data } = await axios.post(`${url}`, body);
+    console.log("[SUCCESS] CREATE MEMBER", data.data);
+    return data.data;
+  } catch (e) {
+    console.log("[FAIL] CREATE MEMBER", e);
+    throw e;
+  }
+}
+
+const MemberAPI = {
   getMembers,
   getMember,
   updateMember,
+  createMember,
 };
 
-export default memberAPI;
-export { getMembers, getMember, updateMember };
+export default MemberAPI;
+export { getMembers, getMember, updateMember, createMember };

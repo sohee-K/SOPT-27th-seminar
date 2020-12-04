@@ -4,7 +4,7 @@ import Card from "../components/Card";
 import Loading from "../components/Loading";
 import { useEffect, useState } from "react";
 
-import { getMembers } from "../lib/memberAPI";
+import MemberAPI from "../lib/memberAPI";
 
 function MemberList({ history, match }) {
   const [membersState, setMembersState] = useState({
@@ -16,7 +16,7 @@ function MemberList({ history, match }) {
     (async () => {
       setMembersState({ members: null, status: "pending" });
       try {
-        const result = await getMembers();
+        const result = await MemberAPI.getMembers();
         setTimeout(() => {
           setMembersState({ members: result, status: "resolved" });
         }, 300);
@@ -27,9 +27,25 @@ function MemberList({ history, match }) {
     })();
   }, []);
 
-  const removeCard = (event) => {
+  const onRemoveCard = (event) => {
     event.stopPropagation();
     console.log("REMOVE CARD!!");
+  };
+
+  const onCreateCard = async () => {
+    try {
+      const data = await MemberAPI.createMember({
+        name: "your name",
+        instagram: "your instagram",
+        introduction: "your introduction",
+        mbti: "your mbti",
+        profileUrl: "",
+      });
+      setMembersState({
+        members: [...membersState.members, data],
+        status: "resolved",
+      });
+    } catch (e) {}
   };
 
   switch (membersState.status) {
@@ -57,10 +73,12 @@ function MemberList({ history, match }) {
                 key={"card-" + index}
                 route={{ history, match }}
                 memberData={member}
-                onRemoveCard={removeCard}
+                onRemoveCard={onRemoveCard}
               />
             ))}
-            <div className="create-card">+ New</div>
+            <div className="create-card" onClick={onCreateCard}>
+              + New
+            </div>
           </div>
         </div>
       );
